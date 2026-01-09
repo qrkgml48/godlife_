@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>라인전.gg | 롤 라인전 피드백</title>
+<style>
+body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#0f172a; color:#e5e7eb; }
+header { padding:24px; text-align:center; background:#020617; }
+h1 { margin:0; }
+main { max-width:900px; margin:0 auto; padding:24px; }
+.card { background:#020617; border:1px solid #1e293b; border-radius:12px; padding:20px; margin-bottom:20px; }
+label { display:block; margin-top:12px; }
+select, button { width:100%; padding:10px; margin-top:6px; border-radius:8px; border:none; }
+select { background:#020617; color:#e5e7eb; border:1px solid #334155; }
+button { background:#22c55e; color:#022c22; font-weight:bold; cursor:pointer; }
+button:hover { opacity:0.9; }
+.result { line-height:1.6; }
+footer { text-align:center; padding:20px; color:#64748b; font-size:14px; }
+</style>
+</head>
+<body>
+<header>
+<h1>라인전.gg</h1>
+<p>라인전 이후, 뭘 해야 이기는지 알려준다</p>
+</header>
+
+
+<main>
+<div class="card">
+<label>라인 선택</label>
+<select id="lane">
+<option>탑</option>
+<option>미드</option>
+<option>정글</option>
+<option>원딜</option>
+<option>서폿</option>
+</select>
+
+
+<label>내 챔피언</label>
+<select id="me">
+<option>레넥톤</option>
+<option>다리우스</option>
+<option>가렌</option>
+<option>잭스</option>
+</select>
+
+
+<label>상대 챔피언</label>
+<select id="enemy">
+<option>잭스</option>
+<option>가렌</option>
+<option>다리우스</option>
+<option>레넥톤</option>
+</select>
+
+
+<label>라인전 결과</label>
+<select id="result">
+<option>이김</option>
+<option>비김</option>
+<option>짐</option>
+</select>
+
+
+<button onclick="analyze()">피드백 받기</button>
+</div>
+
+
+<div class="card result" id="output">
+결과가 여기에 표시됩니다.
+</div>
+</main>
+
+
+<footer>
+© 2026 linegg. Riot Games와 무관한 비공식 서비스
+</footer>
+
+
+<script>
+function analyze() {
+const lane = document.getElementById('lane').value;
+const me = document.getElementById('me').value;
+const enemy = document.getElementById('enemy').value;
+const result = document.getElementById('result').value;
+
+
+let text = `【${lane} 라인 피드백】<br><br>`;
+
+
+if (result === '이김') {
+text += `라인전을 이겼는데 게임을 지는 경우, 가장 큰 문제는 <b>이득을 굴리지 못한 것</b>입니다.<br><br>`;
+text += `✔ 타워 압박 후 시야 장악<br>`;
+text += `✔ 상대 정글 동선 차단<br>`;
+text += `✔ 전령 / 용 타이밍 합류<br>`;
+} else if (result === '비김') {
+text += `라인이 비슷했다면, <b>팀 합류 타이밍</b>이 중요합니다.<br><br>`;
+text += `✔ 무리한 1:1 지양<br>`;
+text += `✔ 오브젝트 중심 플레이<br>`;
