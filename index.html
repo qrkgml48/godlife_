@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GODLIFE | 갓생을 설계하다</title>
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: #171a2e;
+      --accent: #6cf2c2;
+      --text: #e8ebff;
+      --muted: #a9b0ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b1f4a, transparent), var(--bg);
+      color: var(--text);
+    }
+    header {
+      padding: 64px 20px 32px; text-align: center;
+    }
+    header h1 { font-size: clamp(32px, 6vw, 56px); margin: 0 0 12px; }
+    header p { color: var(--muted); max-width: 720px; margin: 0 auto 24px; }
+    .cta {
+      display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      padding: 12px 18px; border-radius: 14px; border: 1px solid transparent; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), #8aa2ff);
+      color: #0b0f1a; font-weight: 700;
+    }
+    .btn.ghost { background: transparent; border-color: #2a2f66; color: var(--text); }
+    main { padding: 24px 20px 64px; }
+    .grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.0)), var(--card);
+      border: 1px solid #232867; border-radius: 18px; padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h3 { margin: 6px 0 8px; }
+    .card p { color: var(--muted); margin: 0; }
+    .section-title { max-width: 1100px; margin: 40px auto 12px; padding: 0 4px; }
+    .habit {
+      display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px;
+      background: #12163a; border: 1px dashed #2a2f66;
+    }
+    .habit input { accent-color: var(--accent); }
+    footer {
+      text-align: center; padding: 24px; color: var(--muted); border-top: 1px solid #232867;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GODLIFE</h1>
+    <p>하루를 설계하고, 습관을 기록하고, 성장 곡선을 만든다. 오늘의 선택이 내일의 나를 만든다.</p>
+    <div class="cta">
+      <button class="btn" onclick="scrollToId('habits')">오늘의 습관 체크</button>
+      <button class="btn ghost" onclick="scrollToId('features')">기능 보기</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="features" class="section-title"><h2>핵심 기능</h2></div>
+    <section class="grid">
+      <div class="card"><h3>🎯 목표 관리</h3><p>단기/중기/장기 목표를 분리해 집중력을 유지합니다.</p></div>
+      <div class="card"><h3>🔥 습관 트래커</h3><p>매일 체크하며 연속 기록을 쌓아 동기부여를 강화합니다.</p></div>
+      <div class="card"><h3>📈 성장 시각화</h3><p>주간·월간 리포트로 나의 변화를 한눈에 확인.</p></div>
+      <div class="card"><h3>⏱ 집중 타이머</h3><p>포모도로 기반으로 몰입 시간을 관리합니다.</p></div>
+    </section>
+
+    <div id="habits" class="section-title"><h2>오늘의 습관</h2></div>
+    <section class="grid">
+      <label class="habit"><input type="checkbox" /> 아침 기상 후 스트레칭</label>
+      <label class="habit"><input type="checkbox" /> 운동 30분</label>
+      <label class="habit"><input type="checkbox" /> 공부/자기계발 1시간</label>
+      <label class="habit"><input type="checkbox" /> 물 2L</label>
+      <label class="habit"><input type="checkbox" /> 스마트폰 절제</label>
+      <label class="habit"><input type="checkbox" /> 하루 회고 작성</label>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GODLIFE. 갓생은 하루하루의 선택이다.</p>
+  </footer>
+
+  <script>
+    function scrollToId(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
+  </script>
+</body>
+</html>
